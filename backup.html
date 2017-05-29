@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Jeep BackUP</title>
+    <link href="#" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://test-sdp.jeep.com/crossbrand/styleguide/v2/css/jeep/global.css">
+    <link rel="stylesheet" href="https://test-sdp.jeep.com/crossbrand/lineup/assets/css/common_picker.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/data.min.js"></script>
+    <script src="assets/js/picker_config.js"></script>
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        } );
+    </script>
+</head>
+<body style="background: #FFF;">
+<section class="xb-main-content">
+    <header class="xb-app-header">
+        <div class="xb-app-header-content">
+            <h1 class="gc-heading-size-6 xb-app-lineup-main-title">Select A Vehicle</h1>
+            <nav class="xb-app-util-nav">
+                <ul>
+                    <li><a class="gc-icon-arrow-head-right gc-icon-align-right" href="#xb-app-change-zipcode" data-lpos="content" data-lid="edit-zip"><span class="gc-font-color-tertiary"></span> Change</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="xb-app-content vhp">
+        <div>
+            <a id="closeHelpMe" class="open" href="#" data-donottrack="true">x</a>
+        </div>
+        <div id="filter-option" class="gc-background-color-e xb-app-border-color-c"><strong class="title gc-heading-size-9"><span>Help Me</span></strong><span class="title">Tell us what you want in your Jeep<sub>®</sub> brand vehicle and we'll find the one that is right for you.</span>
+            <div id="msrp_slider" class="slider">
+                <h1 class="gc-heading-size-15">Pricing</h1>
+                <div id="msrp" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all xb-gc-border-color-b" aria-disabled="false"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><div class="ui-slider-range ui-widget-header ui-corner-all xb-app-background-color-a" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                <div class="slider-value gc-theme-dark">
+                    <section class="slide-min gc-heading-size-19 gc-font-color-secondary">
+                        <span class="gc-background-color-c">$17,995</span>
+                    </section>
+                    <section class="slide-max gc-heading-size-19 gc-font-color-secondary">
+                        <span class="gc-background-color-c">$66,895</span>
+                    </section>
+                </div>
+            </div>
+
+            <div id="towing_slider" class="slider">
+                <h1 class="gc-heading-size-15">Towing<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup></h1>
+                <div id="towing" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all xb-gc-border-color-b" aria-disabled="false"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><div class="ui-slider-range ui-widget-header ui-corner-all xb-app-background-color-a" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                <div class="slider-value gc-theme-dark">
+                    <section class="slide-min gc-heading-size-19 gc-font-color-secondary">
+                        <span class="gc-background-color-c">0 lbs</span>
+                    </section>
+                    <section class="slide-max gc-heading-size-19 gc-font-color-secondary">
+                        <span class="gc-background-color-c">7,400 lbs</span>
+                    </section>
+                </div>
+            </div>
+            <div id="engine" class="option"><h1 class="gc-heading-size-15">Engine</h1><ul class="option-content"><li class="gc-forms-checkbox"><input type="checkbox" value="gasoline" name="gasoline" id="cb_gasoline_0" checked=""><label for="cb_gasoline_0">Gasoline</label></li><li class="gc-forms-checkbox"><input type="checkbox" value="diesel" name="diesel" id="cb_diesel_1" checked=""><label for="cb_diesel_1">Diesel</label></li></ul></div><div id="reset_control"><a href="#" data-lid="reset_selections">Reset Selections</a></div></div>
+        <div class="vehicles filter-content">
+            <div class="filter-button">
+                <a id="mobileHelpMe" href="#" class="gc-button-block gc-button-plain gc-button" data-lid="help-me" data-lpos="content">Open Help Me</a>
+            </div>
+            <nav class="xb-app-lineup-vehicle-list main-vehicles">
+                <ul>
+                    <li id="compass" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_compass" data-year="2017" data-vehicle="compass" data-lid="2017_compass" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Compass</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;compass&quot;}" data-lid="2017_compass_details_image">
+                                    <img alt="2017 Compass" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Compass.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">20,995</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="EPA estimated mpg with 2.0L engine and five-speed manual transmission, 4x2. Actual mileage may vary." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">6</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">23/32</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">2,000</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;compass&quot;}" data-lid="2017_compass_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="grand_cherokee" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_grand_cherokee" data-year="2017" data-vehicle="grand_cherokee" data-lid="2017_grand_cherokee" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Grand Cherokee</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;grand_cherokee&quot;}" data-lid="2017_grand_cherokee_details_image">
+                                    <img alt="2017 Grand Cherokee" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Grand-Cherokee.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">30,395</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="EPA estimated mpg with 3.6L engine and eight-speed automatic transmission, 4x2. Actual mileage may vary." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">7</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">19/26</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">7,400</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;grand_cherokee&quot;}" data-lid="2017_grand_cherokee_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="cherokee" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_cherokee" data-year="2017" data-vehicle="cherokee" data-lid="2017_cherokee" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Cherokee</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;cherokee&quot;}" data-lid="2017_cherokee_details_image">
+                                    <img alt="2017 Cherokee" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Cherokee.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">23,695</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="EPA estimated mpg with 2.4L engine and nine-speed automatic transmission, 4x2. Actual mileage may vary." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">8</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">21/30</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">4,500</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;cherokee&quot;}" data-lid="2017_cherokee_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="renegade" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_renegade" data-year="2017" data-vehicle="renegade" data-lid="2017_renegade" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Renegade</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;renegade&quot;}" data-lid="2017_renegade_details_image">
+                                    <img alt="2017 Renegade" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Renegade.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">17,995</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="EPA estimated mpg with 1.4L engine and six-speed manual transmission, 4X2. Actual mileage may vary. " data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">9</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">24/31</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">2,000</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;renegade&quot;}" data-lid="2017_renegade_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="wrangler_unlimited" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_wrangler_unlimited" data-year="2017" data-vehicle="wrangler_unlimited" data-lid="2017_wrangler_unlimited" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Wrangler Unlimited</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;wrangler_unlimited&quot;}" data-lid="2017_wrangler_unlimited_details_image">
+                                    <img alt="2017 Wrangler Unlimited" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Wrangler-Unlimited.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">27,895</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="Manufacturer estimated mpg with 3.6L engine and six-speed manual transmission, 4x4. Actual mileage may vary. " data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">10</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">16/21</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">3,500</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;wrangler_unlimited&quot;}" data-lid="2017_wrangler_unlimited_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="wrangler" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_wrangler" data-year="2017" data-vehicle="wrangler" data-lid="2017_wrangler" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Wrangler</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;wrangler&quot;}" data-lid="2017_wrangler_details_image">
+                                    <img alt="2017 Wrangler" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Wrangler.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">23,995</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title=" Manufacturer estimated mpg with 3.6L engine and five-speed automatic transmission, 4x4. Actual mileage may vary. " data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">11</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">17/21</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">2,000</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;wrangler&quot;}" data-lid="2017_wrangler_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="patriot" data-year="2017">
+                        <div class="gc-background-color-d xb-app-background-color-h xb-app-border-color-c">
+                            <div class="year-toggle gc-font-color-secondary xb-app-border-color-c gc-heading-size-17 inactive">
+
+                                <a href="#2017_patriot" data-year="2017" data-vehicle="patriot" data-lid="2017_patriot" class="toggle active">
+                                    2017
+                                </a>
+
+                            </div>
+                            <div class="vehicle-info gc-background-color-d">
+                                <strong class="gc-heading-size-13 gc-font-color-secondary">
+                                    <span>2017 Patriot</span>
+                                </strong>
+                                <a class="xb-app-lineup-vehicle-image" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;patriot&quot;}" data-lid="2017_patriot_details_image">
+                                    <img alt="2017 Patriot" src="/deprecated/shared/images/lineup/2017-Jeep-Shopping-Tools-Patriot.png">
+                                </a>
+                                <div class="xb-app-lineup-vehicle-info">
+                                    <div class="xb-app-lineup-msrp">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MSRP* Starting At
+						</span>
+                                        <span class="mspr-sign gc-heading-size-18 gc-font-color-quaternary">$</span>
+                                        <span class="msrp-amount gc-heading-size-13">18,040</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-mpg">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							MPG (city/hwy)<sup class="tooltip" data-title="EPA estimated mpg with 2.0L engine and five-speed manual transmission, 4x2. Actual mileage may vary." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">6</span></span></span></sup>
+						</span>
+                                        <span class="upto gc-heading-size-20 gc-font-color-quaternary">Up to</span>
+                                        <span class="gc-heading-size-13">22/27</span>
+                                    </div>
+
+
+                                    <div class="xb-app-lineup-towing">
+						<span class="gc-heading-size-20 gc-font-color-quaternary">
+							Max Towing (lbs)<sup class="tooltip" data-title="When properly equipped. See dealer for details." data-has-dynamically-rendered=""><span data-reactroot="" class="disclosure-bubble-wrapper gcss-theme-light"><span class="bubble gcss-colors-element-disclosure-bubble"><span class="bubble-number gcss-colors-text-disclosure-bubble gcss-typography-label-9">5</span></span></span></sup>
+						</span>
+                                        <span class="gc-heading-size-13">2,000</span>
+                                    </div>
+                                </div>
+                                <div class="xb-app-lineup-button">
+                                    <a class="gc-button" href="#app-vhp" data-context="{&quot;year&quot;:2017, &quot;vehicle&quot; : &quot;patriot&quot;}" data-lid="2017_patriot_details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Jeep | Vehicle Lineup</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/data.min.js"></script>
+    <script src="assets/js/picker_config.js"></script>
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        } );
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SELECT A VEHICLE</h1>
+        </div>
+        <div class="vehicle-container">
+            <div class="help-me">
+                <h3>HELP ME</h3>
+                <p>Tell us what you want in your Jeep<sub>®</sub> brand vehicle and we'll find the one that is right for you.</p>
+                <div class="slider">
+                    <p>
+                        <label for="amount"><strong>Price range:</strong></label>
+                        <input type="text" id="amount" readonly>
+                    </p>
+
+                    <div id="slider-range"></div>
+                </div>
+
+                <div id="engine" class="option">
+                    <h4>Engine</h4>
+                    <ul class="option-content">
+                        <li class="gc-forms-checkbox">
+                            <input type="checkbox" value="gasoline" name="gasoline" id="cb_gasoline_0" checked="">
+                            <label for="cb_gasoline_0">Gasoline</label>
+                        </li>
+                        <li class="gc-forms-checkbox">
+                            <input type="checkbox" value="diesel" name="diesel" id="cb_diesel_1" checked="">
+                            <label for="cb_diesel_1">Diesel</label>
+                        </li>
+                    </ul>
+                    <div class="option" style="margin: 10px;"><a href="#">Reset Selection</a></div>
+                </div>
+            </div>
+            <div class="vehicle-lineup">
+                <div class="lineup">
+                    <h3>2017 Compass</h3>
+                    <img src="assets/images/2017-Jeep-Shopping-Tools-Compass.png">
+                    <div class="lineup-msrp-mpg">
+                        <div class="lineup-msrp">
+                            <div>MSRP* STARTING AT<br/><span>$20,995</span></div>
+                        </div>
+                        <div class="lineup-mpg">
+                            <div>MPG (CITY/HWY)<br/>UP TO<span>23/32</span></div>
+                        </div>
+                    </div>
+                    <div class="btn-lineup"><button>DETAILS > </button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
